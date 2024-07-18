@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import UserInput from './UserInput'; // Assure-toi d'importer correctement ce composant
-import AthleteInfo from './AthleteInfo'; // Assure-toi d'importer correctement ce composant
+import UserInput from './UserInput'; 
+import AthleteInfo from './AthleteInfo'; 
 
 const ChatBot = () => {
   const [athleteData, setAthleteData] = useState(null);
@@ -22,7 +22,7 @@ const ChatBot = () => {
   };
 
   return (
-    <div>
+    <div className='retour'>
       <UserInput onSubmit={fetchAthleteData} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}

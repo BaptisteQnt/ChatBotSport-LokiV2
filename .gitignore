@@ -1,2 +1,8 @@
-./Front/node_modules
-./Back/node_modules
+# Ignorer le répertoire node_modules dans le dossier Front
+Front/node_modules
+
+# Ignorer le répertoire node_modules dans le dossier Back
+Back/node_modules
+
+# Ignorer le fichier cle.env.js dans le dossier Back
+Back/cle.env.js
