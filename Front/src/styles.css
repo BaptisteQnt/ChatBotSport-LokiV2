@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(49, 49, 49);
+}
+
+.all {
+    text-align: center;
+}
+
+.info {
+    color: white;
+}
