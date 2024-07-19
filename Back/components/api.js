@@ -1,4 +1,3 @@
-// api.js
 import OpenAI from 'openai';
 import { API_KEY, ORGANISATION_ID } from '../cle.env.js';
 
@@ -14,26 +13,21 @@ export const getAthleteInfo = async (name) => {
       messages: [
         {
           "role": "system",
-          "content": [
-            {
-              "type": "text",
-              "text": "Tu vas me sortir un JSON avec les parametres suivants :\n Son pays d'origine :\n  le sport qu'il pratique : \n son club ou son equipe :"
-            }
-          ]
+          "content": "Tu es un assistant qui génère des réponses en format JSON uniquement. Réponds uniquement en JSON avec les clés suivantes : nom, prenom, annee_de_naissance ,pays_dorigine, sport, club, taille."
         },
         {
           "role": "user",
-          "content": [
-            {
-              "type": "text",
-              "text": `Donne-moi des informations sur l'athlète nommé ${name}.`
-            }
-          ]
+          "content": `Donne-moi des informations sur l'athlète nommé ${name}.`
         }
       ],
       max_tokens: 150,
     });
-    return response.choices[0].message.content.trim();
+
+    // Parsing the response to JSON
+    
+    const jsonResponse = JSON.parse(response.choices[0].message.content.trim());
+    console.log(jsonResponse);
+    return jsonResponse; // Accessing the data key
   } catch (error) {
     console.error('Erreur lors de l\'appel à l\'API OpenAI:', error);
     throw new Error('Erreur interne du serveur');
